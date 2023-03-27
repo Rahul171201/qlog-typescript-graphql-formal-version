@@ -1,0 +1,43 @@
+@keyframes spin {
+  from {
+    transform: translate(-200%, 0) rotate(0turn);
+  }
+  to {
+    transform: translate(0, 0) rotate(2turn);
+  }
+}
+
+.loginMain {
+  width: 100vw;
+  min-height: 100vh;
+  background-image: url('/images/bg-desktop.svg');
+  background-color: blueviolet;
+  padding: 20px 0px;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  pointer-events: none;
+}
+
+.logoWrapper {
+  animation: spin 1500ms;
+}
+
+.loginWrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 550px) {
+  .navbar {
+    height: 100px;
+  }
+  .loginWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

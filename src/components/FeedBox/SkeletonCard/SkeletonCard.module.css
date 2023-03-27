@@ -1,0 +1,23 @@
+.skeletonWrapper {
+  background-color: white;
+  width: 80%;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 20px 0px;
+  border: 1px solid rgb(144, 122, 233);
+}
+.headerSkeleton {
+  width: 90%;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  line-height: 3;
+}
+
+.contentSkeleton {
+  width: 60%;
+}

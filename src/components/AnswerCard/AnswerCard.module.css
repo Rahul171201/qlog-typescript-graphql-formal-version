@@ -1,0 +1,132 @@
+.answerWrapper {
+  width: 90%;
+  display: flex;
+  height: min-content;
+  background-color: rgb(235, 229, 246);
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  border-radius: 0px 20px 20px 0px;
+  position: relative;
+}
+.leftBox {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-self: flex-start;
+  padding: 10px;
+  gap: 10px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+.rightBox {
+  display: flex;
+  flex-direction: column;
+  flex: 5;
+  padding: 20px;
+  gap: 9px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: rgb(130, 110, 231);
+}
+.horizontalRule {
+  width: 100%;
+  height: 5px;
+  background-color: gray;
+  opacity: 0.3;
+}
+.content {
+  font-size: 1.3rem;
+  padding: 10px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+.upVote {
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 50px solid green;
+  position: relative;
+  cursor: pointer;
+  transition: transform 500ms;
+}
+.upVote:hover {
+  transform: scale(1.1);
+  border-bottom: 50px solid rgb(20, 209, 20);
+}
+.downVote {
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-top: 50px solid rgb(155, 4, 4);
+  position: relative;
+  cursor: pointer;
+  transition: transform 500ms;
+}
+.downVote:hover {
+  transform: scale(1.1);
+  border-top: 50px solid rgb(246, 28, 28);
+}
+.upvoteCount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.downvoteCount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -40px;
+}
+.bookmarkDesign {
+  width: 0;
+  height: 0;
+  border-top: 20px solid rgb(250, 156, 62);
+  border-left: 20px solid rgb(250, 156, 62);
+  border-right: 20px solid rgb(250, 156, 62);
+  border-bottom: 20px solid transparent;
+  position: absolute;
+  top: -15px;
+  left: -20px;
+}
+
+@media (max-width: 550px) {
+  .leftBox {
+    font-size: 0.9rem;
+  }
+  .upVote {
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 40px solid green;
+  }
+  .upVote:hover {
+    border-bottom: 40px solid rgb(20, 209, 20);
+  }
+  .downVote {
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-top: 40px solid rgb(155, 4, 4);
+  }
+  .downVote:hover {
+    border-top: 40px solid rgb(246, 28, 28);
+  }
+  .header {
+    font-size: 0.9rem;
+  }
+  .content {
+    font-size: 1.1rem;
+  }
+  .upvoteCount {
+    margin-top: 17px;
+  }
+  .downvoteCount {
+    margin-top: -35px;
+  }
+}

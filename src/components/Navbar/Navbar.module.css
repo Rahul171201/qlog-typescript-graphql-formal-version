@@ -1,0 +1,100 @@
+.overlay {
+	width: 100%;
+	min-height: 100%;
+	position: absolute;
+	background-color: rgb(71, 65, 65);
+	z-index: 1;
+	top: 0;
+	opacity: 0.5;
+}
+
+.navbarWrapper {
+	width: 100vw;
+	height: min-content;
+}
+
+.navbar {
+	width: 100%;
+	display: flex;
+	z-index: 1;
+	position: relative;
+}
+
+.navListWrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 3;
+	color: white;
+}
+
+.navList {
+	width: 100%;
+	display: flex;
+	list-style: none;
+	justify-content: right;
+	align-items: right;
+	gap: 18px;
+}
+
+.hamburgerWrapper {
+	display: none;
+	position: relative;
+}
+
+.hamburgerMenu {
+	display: flex;
+	width: 130px;
+	height: min-content;
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: rgb(22, 110, 224);
+	flex-direction: column;
+	background-color: white;
+	padding: 20px;
+	border: 1px solid black;
+	z-index: 2;
+	border-radius: 10px 0px 10px 10px;
+}
+.menuList {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+@media (max-width: 900px) {
+	.navListWrapper {
+		display: none;
+	}
+	.hamburgerWrapper {
+		display: flex;
+		justify-content: right;
+		align-items: center;
+		flex: 2;
+	}
+	.hamburgerIcon {
+		background-color: white;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+}
+
+@media (max-width: 750px) {
+	.navbar {
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+	}
+	.hamburgerIcon {
+		margin-right: 20px;
+		cursor: pointer;
+	}
+}
+
+@media (max-width: 550px) {
+	.hamburgerMenu {
+		width: 200px;
+	}
+}

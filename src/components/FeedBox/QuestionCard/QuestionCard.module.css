@@ -1,0 +1,87 @@
+.cardWrapper {
+	padding: 20px;
+	width: 80%;
+	height: min-content;
+	background-color: white;
+	position: relative;
+	border-radius: 15px;
+	margin: 50px 0px;
+	color: black;
+	border: 1px solid rgb(144, 122, 233);
+}
+
+.card {
+	width: 100%;
+	min-height: 300px;
+
+	border-radius: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.horizontalRule {
+	width: 92%;
+	height: 5px;
+	background-color: rgb(222, 216, 216);
+	border: none;
+	border-radius: 5px;
+	opacity: 0.5;
+	margin: 20px 0px;
+}
+
+.circle {
+	position: absolute;
+	border-radius: 50%;
+	border: 4px solid rgb(123, 3, 79);
+	background-color: rgb(213, 19, 234);
+}
+
+.bigCircle {
+	width: 100px;
+	height: 100px;
+	top: -50px;
+	left: -50px;
+}
+
+.mediumCircle {
+	width: 80px;
+	height: 80px;
+	top: 60px;
+	left: -40px;
+}
+
+.smallCircle {
+	width: 50px;
+	height: 50px;
+	top: -25px;
+	left: 60px;
+}
+
+@media (max-width: 550px) {
+	.cardWrapper {
+		width: 90%;
+		margin-left: 10px;
+	}
+	.bigCircle {
+		width: 80px;
+		height: 80px;
+		top: -40px;
+		left: -40px;
+	}
+
+	.mediumCircle {
+		width: 60px;
+		height: 60px;
+		top: 60px;
+		left: -30px;
+	}
+
+	.smallCircle {
+		width: 30px;
+		height: 30px;
+		top: -15px;
+		left: 60px;
+	}
+}

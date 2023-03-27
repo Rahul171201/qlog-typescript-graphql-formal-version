@@ -1,0 +1,10 @@
+{
+    "prettier.documentSelectors": [
+        "**/*.{ts,js,tsx,jsx}"
+    ],
+    "prettier.enableDebugLogs": true,
+    "prettier.requireConfig": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "html.format.indentInnerHtml": true
+}

@@ -1,0 +1,13 @@
+.main {
+	width: 100vw;
+	min-height: 100vh;
+	background-image: url("/images/bg-desktop.svg");
+	background-color: blueviolet;
+}
+
+.feedWrapper {
+	width: 100%;
+	min-height: 800px;
+	display: flex;
+	position: relative;
+}

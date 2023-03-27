@@ -1,0 +1,35 @@
+.sideBarWrapper {
+	width: 30%;
+	min-height: 800px;
+	background-color: white;
+	display: flex;
+	border-radius: 9px 0px 0px 9px;
+}
+.heading {
+	font-size: 3rem;
+}
+
+.sideBar {
+	color: white;
+	width: 30vw;
+	min-height: 600px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	text-align: center;
+	position: fixed;
+	top: 250px;
+	right: 0;
+	flex: 0 0 300px;
+}
+
+.list {
+	line-height: 2;
+}
+
+@media (max-width: 1000px) {
+	.sideBarWrapper {
+		display: none;
+	}
+}

@@ -1,0 +1,115 @@
+@keyframes slide-in {
+	from {
+		transform: translateX(100%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0.3;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.profileWrapper {
+	width: 100vw;
+	min-height: 100vh;
+	background-image: url("/images/bg-desktop.svg");
+	background-color: blueviolet;
+}
+
+.mainbodyWrapper {
+	width: 100%;
+	min-height: min-content;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	animation: fade-in 1500ms;
+}
+
+.statsPanel {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+	gap: 20px;
+	animation: slide-in 1500ms;
+}
+
+.questionPanel {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	margin: 10px 10px;
+	border-radius: 10px;
+	flex: 1;
+}
+
+.answerPanel {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	margin: 10px 10px;
+	border-radius: 10px;
+	flex: 1;
+}
+
+.panelHeader {
+	color: rgb(78, 75, 75);
+	font-size: 2.3rem;
+	padding: 20px;
+	padding-top: 30px;
+}
+
+.askQuestionButtonWrapper {
+	display: flex;
+	width: 100%;
+	height: min-content;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+}
+.askQuestionButton {
+	width: 300px;
+	height: 50px;
+	border: none;
+	border-radius: 9px;
+	padding: 10px;
+	background-color: green;
+	color: white;
+	font-size: 1.2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	transition: transform 500ms;
+}
+.askQuestionButton:hover {
+	transform: scale(1.1);
+	background-color: rgb(38, 216, 38);
+}
+
+@media (max-width: 900px) {
+	.panelHeader {
+		font-size: 1.8rem;
+	}
+}
+
+@media (max-width: 600px) {
+	.panelHeader {
+		font-size: 1.5rem;
+	}
+	.statsPanel {
+		flex-direction: column;
+	}
+}
