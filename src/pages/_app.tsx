@@ -1,5 +1,4 @@
 import '@/styles/globals.css';
-import UserContextProvider from '@/contexts/UserContext';
 import SearchContextProvider from '@/contexts/SearchContext';
 import users from '../data/users';
 import questions from '../data/questions';
@@ -49,11 +48,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <ApolloProvider client={client}>
-      <UserContextProvider>
         <SearchContextProvider>
           <Component {...pageProps} />
         </SearchContextProvider>
-      </UserContextProvider>
     </ApolloProvider>
   );
 }
