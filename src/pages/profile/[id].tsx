@@ -4,6 +4,7 @@ import ProfileCard from "@/components/ProfileCard/ProfileCard";
 import StatsColumn from "@/components/StatsColumn/StatsColumn";
 import lato from "@/data/latoFont";
 import Link from "next/link";
+import ToggleButton from "@/components/ToggleButton/ToggleButton";
 
 const Profile = ({ userId } : {userId  :number}) => {
   return (
@@ -11,6 +12,7 @@ const Profile = ({ userId } : {userId  :number}) => {
       <Navbar></Navbar>
       <div className={styles.mainbodyWrapper}>
         <ProfileCard></ProfileCard>
+        <ToggleButton></ToggleButton>
         <div className={styles.askQuestionButtonWrapper}>
           <Link href={"/ask"} className={styles.askQuestionButton}>
             Ask a Question?

@@ -1,17 +1,12 @@
 import styles from "./StatsColumn.module.css";
 import StatsCard from "./StatsCard/StatsCard";
-import { useContext } from "react";
-import { UserContext } from "@/contexts/UserContext";
 import BlankCard from "./BlankCard/BlankCard";
-import useLocalStorage from "@/hooks/useLocalStorage";
 import { useQuery, useReactiveVar } from "@apollo/client";
 import { user } from "@/reactive-var/user";
-import getQuestionsQuery from "@/queries/getQuestionsQuery";
 import getUserDetailsQuery from "@/queries/getUserDetailsQuery";
 import FetchLoader from "../FetchLoader/FetchLoader";
 import QuestionType from "@/types/QuestionType";
 import AnswerType from "@/types/AnswerType";
-import { find } from "lodash";
 
 const StatsColumn = ({type} : {type: "questionColumn" | "answerColumn"}) => {
 
