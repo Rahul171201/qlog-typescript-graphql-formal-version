@@ -89,7 +89,7 @@ const FeedBox = () => {
       ) : (
         <></>
       )}
-      {showSkeleton ? skeletonLoader.map((item) => item) : <></>}
+      {showSkeleton && feedQuestions.length!==0 ? skeletonLoader.map((item) => item) : <></>}
     </div>
   );
 };

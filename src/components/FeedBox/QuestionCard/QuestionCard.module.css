@@ -1,4 +1,4 @@
-@keyframes flash {
+@keyframes flash-diamond {
   from {
     background-color: rgb(213, 19, 234);
     border: 4px solid rgb(123, 3, 79);
@@ -6,6 +6,17 @@
   to {
     border: 4px solid rgb(229, 19, 152);
     background-color: rgb(238, 115, 251);
+  }
+}
+
+@keyframes flash-sun {
+  from {
+    border: 4px solid rgb(165, 4, 4);
+    background-color: rgb(244, 63, 43);
+  }
+  to {
+    border: 4px solid rgb(223, 9, 9);
+    background-color: rgb(255, 90, 72);
   }
 }
 
@@ -42,11 +53,16 @@
   margin: 20px 0px;
 }
 
-.circle {
+.diamondPearlCircle {
   position: absolute;
   border-radius: 50%;
-  border: 4px solid rgb(123, 3, 79);
-  background-color: rgb(213, 19, 234);
+  animation: flash-diamond infinite alternate 1500ms;
+}
+
+.sunBurnCircle {
+  position: absolute;
+  border-radius: 100%;
+  animation: flash-sun infinite alternate 1500ms;
 }
 
 .bigCircle {
@@ -54,7 +70,6 @@
   height: 100px;
   top: -50px;
   left: -50px;
-  animation: flash 2500ms infinite alternate;
 }
 
 .mediumCircle {
@@ -62,7 +77,6 @@
   height: 80px;
   top: 60px;
   left: -40px;
-  animation: flash 3500ms infinite alternate;
 }
 
 .smallCircle {
@@ -70,7 +84,6 @@
   height: 50px;
   top: -25px;
   left: 60px;
-  animation: flash 1500ms infinite alternate;
 }
 
 @media (max-width: 550px) {

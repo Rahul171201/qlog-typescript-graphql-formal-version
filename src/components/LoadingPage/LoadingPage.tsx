@@ -1,9 +1,14 @@
 import styles from './LoadingPage.module.css';
 import Image from 'next/image';
 import lato from '@/data/latoFont';
+import { useReactiveVar } from '@apollo/client';
+import { theme } from '@/reactive-var/theme';
 
 const LoadingPage = () => {
-    return (  <main className={styles.mainWrapper}>
+
+  const currentTheme = useReactiveVar(theme);
+
+    return (  <main className={styles.mainWrapper} style={{backgroundImage: `url(${currentTheme.backgroundImage})`, backgroundColor: currentTheme.backgroundColor}}>
       <div className={`${styles.loadingWrapper} ${lato.className}`}>
         <div className={styles.loadingText}>Loading</div>
         <div className={styles.iconWrapper}>

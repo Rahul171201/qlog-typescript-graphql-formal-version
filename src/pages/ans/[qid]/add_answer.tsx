@@ -1,16 +1,17 @@
 import styles from './Answer.module.css';
 import Navbar from '@/components/Navbar/Navbar';
 import lato from '@/data/latoFont';
-import useLocalStorage from '@/hooks/useLocalStorage';
 import ImageComponent from '@/components/ImageComponent/ImageComponent';
 import AnswerForm from '@/components/AnswerForm/AnswerForm';
-import QuestionType from '@/types/QuestionType';
-import { useQuery } from '@apollo/client';
+import { useQuery, useReactiveVar } from '@apollo/client';
 import getQuestionQuery from '@/queries/getQuestionQuery';
 import LoadingPage from '@/components/LoadingPage/LoadingPage';
+import { theme } from '@/reactive-var/theme';
+import ThemeType from '@/types/ThemeType';
 
 const AddAnswer = ({ qId }: { qId: number }) => {
-  // questions context
+  // current theme
+  const currentTheme : ThemeType = useReactiveVar(theme);
 
    const { data, loading, error } = useQuery(getQuestionQuery, {
     variables: {
@@ -32,7 +33,7 @@ const AddAnswer = ({ qId }: { qId: number }) => {
   const question = data.question;
 
   return (
-    <div className={`${styles.answerWrapper} ${lato.className}`}>
+    <div className={`${styles.answerWrapper} ${lato.className}`}  style={{backgroundImage: `url(${currentTheme.backgroundImage})`, backgroundColor: currentTheme.backgroundColor}}>
       <Navbar></Navbar>
       <div className={styles.questionWrapper}>
         <div className={styles.questionTitle}>{question.title}</div>

@@ -18,10 +18,16 @@ import { user } from '@/reactive-var/user';
 import LoadingPage from '@/components/LoadingPage/LoadingPage';
 import { find } from 'lodash';
 import UserType from '@/types/UserType';
+import ThemeType from '@/types/ThemeType';
+import { theme } from '@/reactive-var/theme';
 
 const Question = ({ qId }: { qId: number }) => {
   // currently Logged in User
   const currentUser : UserType | null = useReactiveVar(user);
+
+
+  //current theme
+  const currentTheme : ThemeType = useReactiveVar(theme);
 
   // search context
   const { setSearchText } = useContext(SearchContext);
@@ -92,7 +98,7 @@ const Question = ({ qId }: { qId: number }) => {
   };
 
   return (
-    <main className={styles.main}>
+    <main className={styles.main}  style={{backgroundImage: `url(${currentTheme.backgroundImage})`, backgroundColor: currentTheme.backgroundColor}}>
       <Navbar></Navbar>
       <div className={`${styles.contentWrapper} ${lato.className}`}>
         <div className={styles.questionBox}>

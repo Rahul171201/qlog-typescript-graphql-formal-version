@@ -5,10 +5,16 @@ import StatsColumn from "@/components/StatsColumn/StatsColumn";
 import lato from "@/data/latoFont";
 import Link from "next/link";
 import ToggleButton from "@/components/ToggleButton/ToggleButton";
+import { useReactiveVar } from "@apollo/client";
+import { theme } from "@/reactive-var/theme";
 
 const Profile = ({ userId } : {userId  :number}) => {
+
+
+  const currentTheme = useReactiveVar(theme);
+
   return (
-    <div className={`${styles.profileWrapper} ${lato.className}`}>
+    <div className={`${styles.profileWrapper} ${lato.className}`}  style={{backgroundImage: `url(${currentTheme.backgroundImage})`, backgroundColor: currentTheme.backgroundColor}}>
       <Navbar></Navbar>
       <div className={styles.mainbodyWrapper}>
         <ProfileCard></ProfileCard>

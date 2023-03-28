@@ -10,8 +10,6 @@
 .mainWrapper {
   width: 100vw;
   height: 100vh;
-  background-image: url('/images/bg-desktop.svg');
-  background-color: blueviolet;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -3,11 +3,16 @@ import Logo from '@/components/Logo/Logo';
 import registerFormData from '@/data/registerFormData';
 import Form from '@/components/Form/Form';
 import SloganComponent from '@/components/SloganComponent/SloganComponent';
+import { useReactiveVar } from '@apollo/client';
+import { theme } from '@/reactive-var/theme';
 
 // Register Component
 const Register = () => {
+
+  const currentTheme = useReactiveVar(theme);
+
   return (
-    <main className={styles.loginMain}>
+    <main className={styles.loginMain} style={{backgroundImage: `url(${currentTheme.backgroundImage})`, backgroundColor: currentTheme.backgroundColor}}>
       <div className={styles.navbar}>
         <div className={styles.logoWrapper}>
           <Logo></Logo>

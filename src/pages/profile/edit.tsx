@@ -1,16 +1,18 @@
 import styles from './EditProfile.module.css';
 import Navbar from '@/components/Navbar/Navbar';
 import lato from '@/data/latoFont';
-import { SyntheticEvent, useContext } from 'react';
-import { UserContext } from '@/contexts/UserContext';
+import { SyntheticEvent } from 'react';
 import Router from 'next/router';
 import { useMutation, useReactiveVar } from '@apollo/client';
 import { user } from '@/reactive-var/user';
 import updateUserMutation from '@/mutations/updateUserMutation';
+import { theme } from '@/reactive-var/theme';
 
 const EditProfile = () => {
   // currently logged in user
   const currentUser = useReactiveVar(user);
+
+  const currentTheme = useReactiveVar(theme);
 
   const [updateUser, {}] = useMutation(updateUserMutation);
 
@@ -41,7 +43,7 @@ const EditProfile = () => {
   };
 
   return (
-    <div className={styles.editProfileWrapper}>
+    <div className={styles.editProfileWrapper}  style={{backgroundImage: `url(${currentTheme.backgroundImage})`, backgroundColor: currentTheme.backgroundColor}}>
       <Navbar></Navbar>
       <div className={`${styles.formWrapper} ${lato.className}`}>
         <form className={styles.form} onSubmit={handleSubmit}>

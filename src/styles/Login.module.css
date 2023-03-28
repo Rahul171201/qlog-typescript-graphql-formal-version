@@ -10,10 +10,6 @@
 .loginMain {
   width: 100vw;
   min-height: 100vh;
-  background-image: url('/images/bg-desktop.svg');
-  /* background-image: url('/images/bg-desktop1.svg'); */
-  background-color: blueviolet;
-  /* background-color: hsl(356, 100%, 66%); */
   padding: 20px 0px;
 }
 
