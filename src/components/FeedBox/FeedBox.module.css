@@ -1,33 +1,43 @@
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .feedBox {
-	width: 70%;
-	min-height: 800px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  width: 70%;
+  min-height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fade-in 1500ms;
 }
 .blankPageWrapper {
-	width: 90%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 200px;
-	background-color: white;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  background-color: white;
 }
 
 .noresultText {
-	font-size: 2rem;
-	letter-spacing: 2px;
-	overflow-wrap: break-word;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  overflow-wrap: break-word;
 }
 
 @media (max-width: 1000px) {
-	.feedBox {
-		width: 100%;
-	}
-	.blankPageWrapper {
-		min-height: 100px;
-	}
-	.noresultText {
-		font-size: 1.2rem;
-	}
+  .feedBox {
+    width: 100%;
+  }
+  .blankPageWrapper {
+    min-height: 100px;
+  }
+  .noresultText {
+    font-size: 1.2rem;
+  }
 }

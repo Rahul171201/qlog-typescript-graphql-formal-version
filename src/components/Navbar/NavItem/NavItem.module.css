@@ -1,20 +1,30 @@
 .navListItem {
-	text-decoration: none;
-	cursor: pointer;
-	letter-spacing: 2px;
-	color: white;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: transform 500ms;
 }
 .navListItem:hover {
-	color: rgba(240, 255, 255, 0.781);
+  transform: scale(1.05);
+}
+
+.navListLink {
+  text-decoration: none;
+  color: white;
+}
+
+.navListLink:hover {
+  color: rgba(240, 255, 255, 0.781);
 }
 
 .hamburgerItem {
-	cursor: pointer;
-	letter-spacing: 2px;
-	text-decoration: none;
-	color: black;
+  cursor: pointer;
+  letter-spacing: 2px;
 }
 
-.hamburgerItem:hover {
-	color: rgb(71, 100, 228);
+.hamburgerItemLink {
+  text-decoration: none;
+  color: black;
+}
+.hamburgerItemLink:hover {
+  color: rgb(71, 100, 228);
 }

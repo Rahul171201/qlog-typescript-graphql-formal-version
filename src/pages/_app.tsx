@@ -15,7 +15,6 @@ const cache = new InMemoryCache({
         questions: {
           keyArgs: false,
           merge(existing = [], incoming){
-            console.log(existing, 'kl', incoming);
             return [...existing, ...incoming];
           }
         }
