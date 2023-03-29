@@ -34,8 +34,6 @@ const Form = (props: any) => {
     dispatchForm
   );
 
-  console.log('hmm');
-
   return (
     <div className={`${styles.formWrapper} ${lato.className}`}>
       <div className={styles.header}>{props.name}</div>
