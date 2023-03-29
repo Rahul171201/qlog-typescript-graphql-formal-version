@@ -20,7 +20,7 @@
 
 .formWrapper {
   width: 50%;
-  min-height: 70vh;
+  min-height: 600px;
   background-color: white;
   display: flex;
   flex-direction: column;

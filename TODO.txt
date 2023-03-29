@@ -1,8 +1,0 @@
-* handle upvote, downvote, rating ko thik karo
-...only array of answer and question ids stoe hona chahiye
-
-* handle submit functions
-
-* downlevel iteration on in typescript .tsconfig
-
-* Type of events

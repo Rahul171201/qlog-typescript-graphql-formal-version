@@ -34,6 +34,8 @@ const Form = (props: any) => {
     dispatchForm
   );
 
+  console.log('hmm');
+
   return (
     <div className={`${styles.formWrapper} ${lato.className}`}>
       <div className={styles.header}>{props.name}</div>
@@ -104,3 +106,4 @@ const Form = (props: any) => {
 };
 
 export default Form;
+
