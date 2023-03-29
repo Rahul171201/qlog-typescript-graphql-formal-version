@@ -16,9 +16,16 @@
   transform: rotate(360deg);
 }
 
-.selected {
+.selectedtheme1 {
   background-color: rgb(186, 155, 208);
 }
-.notSelected {
+.notSelectedtheme1 {
   background-color: rgb(138, 169, 236);
+}
+
+.selectedtheme2 {
+  background-color: rgb(244, 95, 49);
+}
+.notSelectedtheme2 {
+  background-color: rgb(242, 53, 53);
 }

@@ -1,10 +1,14 @@
 .listItem {
-	width: 20vw;
-	font-size: 1.5rem;
-	list-style: none;
-	margin: 20px 0px;
-	cursor: pointer;
+  width: 20vw;
+  font-size: 1.5rem;
+  list-style: none;
+  margin: 20px 0px;
+  cursor: pointer;
 }
-.listItem:hover {
-	background-color: rgb(186, 155, 208) !important;
+
+.theme1:hover {
+  background-color: rgb(186, 155, 208) !important;
+}
+.theme2:hover {
+  background-color: rgb(244, 95, 49);
 }

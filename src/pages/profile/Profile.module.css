@@ -114,4 +114,9 @@
   .statsPanel {
     flex-direction: column;
   }
+  .askQuestionButton {
+    width: 200px;
+    height: 40px;
+    font-size: 1rem;
+  }
 }

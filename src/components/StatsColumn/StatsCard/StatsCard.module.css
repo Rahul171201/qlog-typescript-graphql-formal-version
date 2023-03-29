@@ -1,59 +1,69 @@
 .cardWrapper {
-	width: 100%;
-	height: min-content;
-	display: flex;
-	flex-direction: column;
-	justify-content: left;
-	align-items: center;
-	gap: 10px;
-	background-color: rgb(49, 193, 245);
-	color: white;
-	text-decoration: none;
+  width: 100%;
+  height: min-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  text-decoration: none;
 }
-.cardWrapper:hover {
-	background-color: rgb(96, 222, 253);
+
+.theme1 {
+  background-color: rgb(15, 113, 210);
+}
+.theme1:hover {
+  background-color: rgb(49, 193, 245);
+}
+
+.theme2 {
+  background-color: rgb(246, 86, 33);
+}
+.theme2:hover {
+  background-color: orange;
 }
 
 .cardTitle {
-	font-size: 2rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 20px;
-	text-align: center;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
 }
 .horizontalRule {
-	width: 90%;
-	height: 5px;
-	background-color: rgb(31, 74, 246);
-	opacity: 0.2;
-	border-radius: 9px;
+  width: 90%;
+  height: 5px;
+  background-color: rgb(31, 74, 246);
+  opacity: 0.2;
+  border-radius: 9px;
 }
 .cardContent {
-	width: 100%;
-	font-size: 1.1rem;
-	padding: 20px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 @media (max-width: 900px) {
-	.cardTitle {
-		font-size: 1.3rem;
-	}
-	.cardContent {
-		font-size: 1rem;
-	}
+  .cardTitle {
+    font-size: 1.3rem;
+  }
+  .cardContent {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 600px) {
-	.cardTitle {
-		font-size: 1.1rem;
-	}
-	.cardContent {
-		font-size: 0.9rem;
-	}
+  .cardTitle {
+    font-size: 1.1rem;
+  }
+  .cardContent {
+    font-size: 0.9rem;
+  }
 }

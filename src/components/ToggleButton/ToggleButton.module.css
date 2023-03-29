@@ -34,6 +34,27 @@
   }
 }
 
+/**
+MOBILE DEVICES
+**/
+@keyframes blood-sun-slider-mobile {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(70px);
+  }
+}
+
+@keyframes diamond-pearl-slider-mobile {
+  from {
+    transform: translateX(70px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
 .buttonWrapper {
   width: 100%;
   min-height: 130px;
@@ -79,4 +100,22 @@
 .button.theme2 {
   cursor: pointer;
   animation: blood-sun-slider 500ms forwards;
+}
+
+@media (max-width: 550px) {
+  .buttonSlider {
+    width: 100px;
+    height: 30px;
+  }
+  .button {
+    width: 25px;
+    height: 25px;
+  }
+  .button.theme1 {
+    animation: diamond-pearl-slider-mobile 500ms forwards;
+  }
+
+  .button.theme2 {
+    animation: blood-sun-slider-mobile 500ms forwards;
+  }
 }
