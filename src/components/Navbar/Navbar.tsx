@@ -4,7 +4,6 @@ import styles from './Navbar.module.css';
 import lato from '@/data/latoFont';
 import Image from 'next/image';
 import { memo, useContext, useState } from 'react';
-import { UserContext } from '@/contexts/UserContext';
 import NavItem from './NavItem/NavItem';
 import { useReactiveVar } from '@apollo/client';
 import { user } from '@/reactive-var/user';

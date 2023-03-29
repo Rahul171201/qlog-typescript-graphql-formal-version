@@ -55,7 +55,8 @@ const Question = ({ qId }: { qId: number }) => {
       window.localStorage.setItem('currentuser', JSON.stringify(currentUser));
     }
     if (currentUser && currentUser.answered && question) {
-      currentUser.answered.forEach((ans : AnswerType) => {
+      const userAnswered = currentUser.answered as AnswerType[];
+      userAnswered.forEach((ans : AnswerType) => {
         const answer_given = find(question.answers, {id: ans.id});
         if (answer_given) {
           setAnswerGiven(true);
