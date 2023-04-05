@@ -3,6 +3,14 @@
   min-height: 100vh;
 }
 
+[data-theme='dark'].main {
+  background-color: var(--dark-main-background-color);
+}
+
+[data-theme='light'].main {
+  background-color: var(--light-main-background-color);
+}
+
 .feedWrapper {
   width: 100%;
   min-height: 800px;

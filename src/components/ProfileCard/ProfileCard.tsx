@@ -9,9 +9,14 @@ import { useMutation, useReactiveVar } from '@apollo/client';
 import { user } from '@/reactive-var/user';
 import FetchLoader from '../FetchLoader/FetchLoader';
 import updateUserMutation from '@/mutations/updateUserMutation';
+import { theme } from '@/reactive-var/theme';
 
 // Profile Card Component
 const ProfileCard = () => {
+
+  // current theme
+  const currentTheme = useReactiveVar(theme);
+  
   // currently Logged in User
   const currentUser = useReactiveVar(user);
 
@@ -27,7 +32,7 @@ const ProfileCard = () => {
 
   if (currentUser) {
     return (
-      <div className={`${styles.profileCard} ${lato.className}`}>
+      <div data-theme={currentTheme} className={`${styles.profileCard} ${lato.className}`}>
         <div className={styles.editProfile} onClick={handleRedirect}>
           <ToolTip></ToolTip>
         </div>
@@ -40,51 +45,12 @@ const ProfileCard = () => {
             className={styles.profileImage}
             id="final-profile-image"
           ></Image>
-          <div className={styles.uploadProfile}>
-            <label htmlFor="profile-image" className={styles.labelProfileImage}>
-              <Image
-                src="/images/camera.png"
-                alt="camera icon"
-                width={40}
-                height={40}
-              ></Image>
-            </label>
-
-            <input
-              type="file"
-              accept="image/*"
-              className={styles.fileInput}
-              id="profile-image"
-              onChange={(e) => {
-                const profileImage = e.target;
-                const reader = new FileReader();
-                if (profileImage.files) {
-                  reader.readAsDataURL(profileImage.files[0]);
-                  reader.onload = () => {
-                    const newUser = {
-                      ...currentUser,
-                      profileImage: reader.result
-                    } as UserType;
-                    console.log(typeof newUser.profileImage);
-                    updateUser({
-                      variables: {
-                        userId: newUser.userId,
-                        profileImage: newUser.profileImage
-                      }
-                    })
-                    user(newUser);
-                  };
-                  e.target.value = '';
-                }
-              }}
-            ></input>
-          </div>
         </div>
         <div className={styles.infoContainer}>
           <span className={styles.name}>
             {currentUser ? currentUser.userName : ''}
           </span>
-          <span className={styles.email}>
+          <span data-theme={currentTheme} className={styles.email}>
             {currentUser ? currentUser.email : ''}
           </span>
         </div>

@@ -1,3 +1,14 @@
+:root {
+  --light-sub-background-color: rgb(241, 241, 241);
+  --light-main-background-color: white;
+  --light-link-color: rgb(0, 90, 150);
+  --light-font-color: rgb(24, 24, 24);
+  --dark-main-background-color: rgb(5, 62, 195);
+  --dark-sub-background-color: rgb(25, 134, 251);
+  --dark-link-color: rgb(255, 255, 255);
+  --dark-font-color: white;
+}
+
 *,
 *::before,
 *::after {
@@ -16,16 +27,30 @@
   transform: rotate(360deg);
 }
 
-.selectedtheme1 {
-  background-color: rgb(186, 155, 208);
+.selectedlight {
+  gap: 7px;
+  align-items: center;
+  display: flex;
+  color: grey;
+  padding-left: 35px;
 }
-.notSelectedtheme1 {
-  background-color: rgb(138, 169, 236);
+.notSelectedlight {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  color: black;
+  padding-left: 35px;
 }
 
-.selectedtheme2 {
-  background-color: rgb(244, 95, 49);
+.selecteddark {
+  gap: 7px;
+  align-items: center;
+  display: flex;
+  padding-left: 35px;
 }
-.notSelectedtheme2 {
-  background-color: rgb(242, 53, 53);
+.notSelecteddark {
+  gap: 7px;
+  align-items: center;
+  display: flex;
+  padding-left: 35px;
 }

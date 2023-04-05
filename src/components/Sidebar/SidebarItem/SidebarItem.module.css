@@ -1,14 +1,18 @@
 .listItem {
-  width: 20vw;
   font-size: 1.5rem;
   list-style: none;
   margin: 20px 0px;
   cursor: pointer;
 }
 
+.sidebarItemIcon {
+  width: 20px;
+  height: auto;
+}
+
 .theme1:hover {
-  background-color: rgb(186, 155, 208) !important;
+  color: grey;
 }
 .theme2:hover {
-  background-color: rgb(244, 95, 49);
+  color: blue;
 }

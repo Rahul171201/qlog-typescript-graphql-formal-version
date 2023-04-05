@@ -9,19 +9,19 @@ const SidebarItem = ({
   currentItem,
   setCurrentItem,
   value,
-  index
+  index,
+  imageURL
 }: {
   currentItem: number;
   setCurrentItem: Dispatch<SetStateAction<number>>;
   value: string;
   index: number;
+  imageURL: string
 }) => {
   const currentTheme = useReactiveVar(theme);
 
   // search context
   const { setSearchText } = useContext(SearchContext);
-
-  const colorTheme = +currentTheme.type[currentTheme.type.length - 1];
 
   const handleClick = (e: SyntheticEvent) => {
     const listItem = e.currentTarget.getElementsByTagName('li')[0];
@@ -49,14 +49,15 @@ const SidebarItem = ({
     <div
       className={
         currentItem === index
-          ? 'selected' + currentTheme.type
-          : 'notSelected' + currentTheme.type
+          ? 'selected' + currentTheme
+          : 'notSelected' + currentTheme
       }
       onClick={handleClick}
     >
+      <img src={currentTheme === "light" ? imageURL : imageURL.slice(0,imageURL.length-4)+'-white.png'} alt='sports' className={styles.sidebarItemIcon}></img>
       <li
         className={
-          colorTheme === 1
+          currentTheme === 'light'
             ? ` ${styles.listItem} ${styles.theme1}`
             : ` ${styles.listItem} ${styles.theme2}`
         }

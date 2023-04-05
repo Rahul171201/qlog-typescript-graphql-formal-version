@@ -1,11 +1,8 @@
 import '@/styles/globals.css';
 import SearchContextProvider from '@/contexts/SearchContext';
-import users from '../data/users';
-import questions from '../data/questions';
-import answers from '../data/answers';
-import { useEffect } from 'react';
 import { AppProps } from 'next/app';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { find } from 'lodash';
 
 //Apollo cache
 const cache = new InMemoryCache({
@@ -15,6 +12,11 @@ const cache = new InMemoryCache({
         questions: {
           keyArgs: false,
           merge(existing = [], incoming){
+            let q = null;
+            if(incoming.length>0)
+             q = find(existing, incoming[0]);
+            if(q)
+              return existing;
             return [...existing, ...incoming];
           }
         }
@@ -30,20 +32,6 @@ const client = new ApolloClient({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    window.localStorage.setItem(
-      'users',
-      JSON.stringify(Array.from(users.entries()))
-    );
-    window.localStorage.setItem(
-      'answers',
-      JSON.stringify(Array.from(answers.entries()))
-    );
-    window.localStorage.setItem(
-      'questions',
-      JSON.stringify(Array.from(questions.entries()))
-    );
-  }, []);
 
   return (
     <ApolloProvider client={client}>

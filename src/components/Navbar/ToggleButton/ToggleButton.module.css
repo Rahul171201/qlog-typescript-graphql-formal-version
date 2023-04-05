@@ -1,0 +1,105 @@
+@keyframes dark-theme-slider {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(50px);
+  }
+}
+
+@keyframes light-theme-slider {
+  from {
+    transform: translateX(50px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes dark-theme-color {
+  from {
+    background-color: rgb(17, 18, 59);
+  }
+  to {
+    background-color: rgb(230, 219, 219);
+  }
+}
+
+@keyframes light-theme-color {
+  from {
+    background-color: rgb(253, 243, 243);
+  }
+  to {
+    background-color: rgb(17, 18, 59);
+  }
+}
+
+.buttonWrapper {
+  width: 100%;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: auto;
+}
+
+.buttonSlider {
+  width: 90px;
+  display: flex;
+  border: 2px solid black;
+  height: 40px;
+  border-radius: 22px;
+}
+
+.button {
+  width: 37px;
+  height: 37px;
+  border-radius: 100%;
+  background-color: white;
+  border: 2px solid black;
+}
+
+.themeTitle {
+  color: white;
+}
+
+.buttonSlider.light {
+  animation: light-theme-color 500ms forwards;
+}
+
+.buttonSlider.dark {
+  animation: dark-theme-color 500ms forwards;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button.light {
+  cursor: pointer;
+  animation: light-theme-slider 500ms forwards;
+}
+
+.button.dark {
+  cursor: pointer;
+  animation: dark-theme-slider 500ms forwards;
+}
+
+.themeIcon {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 550px) {
+  .buttonSlider {
+    width: 100px;
+    height: 30px;
+  }
+  .button {
+    width: 25px;
+    height: 25px;
+  }
+}

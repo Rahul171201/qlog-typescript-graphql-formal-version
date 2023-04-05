@@ -1,34 +1,47 @@
 @keyframes translation {
-	from {
-		transform: translate(0, 0);
-	}
-	to {
-		transform: translate(20px, 0);
-	}
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(20px, 0);
+  }
 }
 
 .wrapper {
-	user-select: none;
-	width: 200px;
-	display: flex;
-	padding: 10px;
-	border-radius: 19px;
-	justify-content: center;
-	align-items: center;
-	border: 1px solid black;
-	-webkit-box-shadow: 0px -4px 3px rgba(151, 144, 144, 0.75);
-	-moz-box-shadow: 0px -4px 3px rgba(109, 104, 104, 0.75);
-	box-shadow: 0px -4px 3px rgba(203, 196, 196, 0.75);
-	font-size: 0.7rem;
-	cursor: pointer;
-	transition: transform 500ms;
+  user-select: none;
+  width: 200px;
+  display: flex;
+  padding: 10px;
+  border-radius: 19px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: transform 500ms;
 }
-.wrapper:hover {
-	background-color: gainsboro;
+
+[data-theme='dark'].wrapper {
+  background-color: var(--dark-main-background-color);
+  -webkit-box-shadow: 0px -4px 3px rgba(92, 136, 239, 0.75);
+  -moz-box-shadow: 0px -4px 3px rgba(78, 158, 224, 0.75);
+  box-shadow: 0px -4px 3px rgba(87, 87, 211, 0.75);
+}
+
+[data-theme='dark'].wrapper:hover {
+  background-color: rgb(45, 42, 126);
+}
+
+[data-theme='light'].wrapper {
+  background-color: var(--light-main-background-color);
+  -webkit-box-shadow: 0px -4px 3px rgba(151, 144, 144, 0.75);
+  -moz-box-shadow: 0px -4px 3px rgba(109, 104, 104, 0.75);
+  box-shadow: 0px -4px 3px rgba(203, 196, 196, 0.75);
 }
 
 .wrapper:hover .icon {
-	animation: translation 1000ms;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
+  animation: translation 1000ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }

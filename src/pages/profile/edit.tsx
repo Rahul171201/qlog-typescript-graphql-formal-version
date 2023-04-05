@@ -7,6 +7,7 @@ import { useMutation, useReactiveVar } from '@apollo/client';
 import { user } from '@/reactive-var/user';
 import updateUserMutation from '@/mutations/updateUserMutation';
 import { theme } from '@/reactive-var/theme';
+import { Button } from '@mui/material';
 
 const EditProfile = () => {
   // currently logged in user
@@ -61,9 +62,12 @@ const EditProfile = () => {
             className={styles.inputField}
             required
           ></input>
-          <button type="submit" className={styles.submitButton}>
+          <div className={styles.submitButton}>
+          <Button type='submit' variant='contained' size='large'>
             EDIT
-          </button>
+          </Button>
+          </div>
+          
         </form>
       </div>
     </div>

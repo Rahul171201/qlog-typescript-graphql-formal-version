@@ -7,10 +7,21 @@
   }
 }
 
+[data-theme='dark'].loginMain {
+  background-color: var(--dark-main-background-color);
+  color: var(--dark-font-color);
+}
+
+[data-theme='light'].loginMain {
+  background-color: var(--light-main-background-color);
+  color: var(--light-font-color);
+}
+
 .loginMain {
   width: 100vw;
   min-height: 100vh;
   padding: 20px 0px;
+
 }
 
 .navbar {
@@ -20,12 +31,14 @@
 }
 
 .logoWrapper {
+  padding: 20px;
   animation: spin 1500ms;
 }
 
 .loginWrapper {
+  width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 @media (max-width: 550px) {

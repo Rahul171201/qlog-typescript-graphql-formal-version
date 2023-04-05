@@ -1,8 +1,3 @@
-type ThemeType = {
-    type: string,
-    name: string,
-    backgroundColor: string,
-    backgroundImage: string
-}
+type ThemeType = "light" | "dark";
 
 export default ThemeType;

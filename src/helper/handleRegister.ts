@@ -51,9 +51,7 @@ const handleRegister = (
       email,
       password
     } as UserType
-  } else {
-    alert('Confirm password must match password field');
-  }
+  } 
   return null;
 };
 

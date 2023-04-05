@@ -1,106 +1,103 @@
 @keyframes slide-in {
-	from {
-		transform: translateX(-100%);
-	}
-	to {
-		transform: translateX(0);
-	}
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 .profileCard {
-	width: 60%;
-	min-height: 200px;
-	background-color: white;
-	border-radius: 9px;
-	display: flex;
-	justify-content: space-evenly;
-	position: relative;
-	animation: slide-in 1500ms;
+  width: 700px;
+  min-height: 200px;
+  border-radius: 9px;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  animation: slide-in 1500ms;
+  margin-top: 50px;
+}
+
+[data-theme='dark'].profileCard {
+  background-color: var(--dark-sub-background-color);
+  color: var(--dark-font-color);
+}
+[data-theme='light'].profileCard {
+  background-color: var(--light-sub-background-color);
+  color: var(--light-font-color);
 }
 
 .profileImageContainer {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profileImage {
-	border-radius: 50%;
-	margin-left: 10px;
-	object-fit: contain;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .fileInput {
-	display: none;
+  display: none;
 }
 
 .labelProfileImage {
-	cursor: pointer;
-}
-
-.uploadProfile {
-	width: 150px;
-	position: absolute;
-	bottom: 20px;
-	background-color: white;
-	display: flex;
-	justify-content: center;
-	opacity: 0.8;
-	cursor: pointer;
-	transition: transform 500ms;
-}
-.uploadProfile:hover {
-	transform: scale(1.1);
+  cursor: pointer;
+  opacity: 1;
 }
 
 .infoContainer {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 12px;
-	letter-spacing: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: 2px;
 }
 
 .name {
-	font-size: 2rem;
+  font-size: 2rem;
 }
 
-.email {
-	color: grey;
+[data-theme='dark'].email {
+  color: rgb(209, 209, 209);
+}
+[data-theme='light'].email {
+  color: grey;
 }
 
 .editProfile {
-	position: absolute;
-	right: 0;
-	cursor: pointer;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
 }
 
 @media (max-width: 900px) {
-	.profileImage {
-		width: 120px;
-		height: 120px;
-	}
-	.profileCard {
-		width: 90%;
-	}
-	.name {
-		font-size: 1.5rem;
-	}
-	.email {
-		font-size: 0.9rem;
-	}
+  .profileImage {
+    width: 120px;
+    height: 120px;
+  }
+  .profileCard {
+    width: 400px;
+  }
+  .name {
+    font-size: 1.5rem;
+  }
+  .email {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 600px) {
-	.profileImage {
-		width: 100px;
-		height: 100px;
-	}
-	.name {
-		font-size: 1.2rem;
-	}
-	.email {
-		font-size: 0.7rem;
-	}
+  .profileImage {
+    width: 100px;
+    height: 100px;
+  }
+  .name {
+    font-size: 1.2rem;
+  }
+  .email {
+    font-size: 0.7rem;
+  }
 }

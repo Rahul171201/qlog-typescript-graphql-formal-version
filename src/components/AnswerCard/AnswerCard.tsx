@@ -1,5 +1,4 @@
-import { UserContext } from '@/contexts/UserContext';
-import { memo, useContext } from 'react';
+import { memo } from 'react';
 import ImageComponent from '../ImageComponent/ImageComponent';
 import styles from './AnswerCard.module.css';
 import handleUpvote from '@/helper/handleUpvote';
@@ -10,51 +9,57 @@ import { user } from '@/reactive-var/user';
 import UserType from '@/types/UserType';
 import updateAnswerMutation from '@/mutations/updateAnswerMutation';
 import FetchLoader from '../FetchLoader/FetchLoader';
+import { theme } from '@/reactive-var/theme';
 // Answer Card component
-const AnswerCard = ({
-  answer,
-  id
-}: {
-  answer: AnswerType,
-  id: number
-}) => {
+const AnswerCard = ({ answer, id }: { answer: AnswerType; id: number }) => {
+
+  const currentTheme = useReactiveVar(theme);
+
   //current Logged in User
-  const currentUser : UserType | null = useReactiveVar(user);
+  const currentUser: UserType | null = useReactiveVar(user);
 
-  const [updateAnswer, {loading, error}] = useMutation(updateAnswerMutation);
+  const [updateAnswer, { loading, error }] = useMutation(updateAnswerMutation);
 
-  if(loading){
-    return <FetchLoader></FetchLoader>
+  if (loading) {
+    return <FetchLoader></FetchLoader>;
   }
 
-  if(error){
+  if (error) {
     throw new Error(error.message);
   }
 
-
   return (
-    <div className={styles.answerWrapper}>
-      <div className={styles.leftBox}>
-        <div
-          className={styles.upVote}
-          onClick={() => {
-            if (currentUser) handleUpvote(currentUser, answer, updateAnswer);
-          }}
-        >
-          <span className={styles.upvoteCount}>{answer.upvotes}</span>
-        </div>
-        <div
-          className={styles.downVote}
-          onClick={() => {
-            if (currentUser) handleDownvote(currentUser, answer, updateAnswer);
-          }}
-        >
-          <span className={styles.downvoteCount}>{answer.downvotes}</span>
-        </div>
-      </div>
+    <div data-theme={currentTheme} className={styles.answerWrapper}>
       <div className={styles.rightBox}>
         <div className={styles.header}>
-          <span>{answer.owner?.userName}</span>
+          <div className={styles.votingBox}>
+            <div
+              onClick={() => {
+                if (currentUser)
+                  handleUpvote(currentUser, answer, updateAnswer);
+              }}
+            >
+              <img
+                src={currentTheme === "light" ? "/images/upvote.png" : "/images/upvote-white.png"}
+                alt="upvote"
+                className={styles.votingButton}
+              ></img>
+            </div>
+            <div>{answer.upvotes - answer.downvotes}</div>
+            <div
+              onClick={() => {
+                if (currentUser)
+                  handleDownvote(currentUser, answer, updateAnswer);
+              }}
+            >
+              <img
+                src={currentTheme === "light" ? "/images/downvote.png" : "/images/downvote-white.png"}
+                alt="downvote"
+                className={styles.votingButton}
+              ></img>
+            </div>
+          </div>
+          <span>Answered by {answer.owner?.userName}</span>
           <span>2 days ago</span>
         </div>
         <hr className={styles.horizontalRule}></hr>
@@ -67,7 +72,6 @@ const AnswerCard = ({
           })}
         </div>
       </div>
-      <div className={styles.bookmarkDesign}></div>
     </div>
   );
 };

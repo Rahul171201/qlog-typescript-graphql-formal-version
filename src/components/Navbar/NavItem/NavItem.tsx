@@ -1,8 +1,11 @@
 import styles from "./NavItem.module.css";
 import Link from "next/link";
+import { useReactiveVar } from "@apollo/client";
+import { theme } from "@/reactive-var/theme";
 
 const NavItem = ({name, url, classType} : {name : string, url : string, classType : string}) => {
 
+  const currentTheme = useReactiveVar(theme);
 
   const handleClearUser = () => {
     if(typeof window !== "undefined" && name === 'LOGOUT'){
@@ -20,6 +23,7 @@ const NavItem = ({name, url, classType} : {name : string, url : string, classTyp
         >
       <Link
         href={url}
+        data-theme={currentTheme}
         className={
           classType === "navListItem"
             ? styles.navListLink

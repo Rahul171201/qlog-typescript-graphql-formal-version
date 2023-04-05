@@ -3,11 +3,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { memo } from "react";
 import QuestionType from "@/types/QuestionType";
+import { useReactiveVar } from "@apollo/client";
+import { theme } from "@/reactive-var/theme";
 
 const QuestionHeader = ({q} : {q: QuestionType}) => {
+
+  const currentTheme = useReactiveVar(theme);
+
   return (
-    <div className={styles.questionHeading}>
-      <Link href={"/q/" + q.id} className={styles.questionTitle}>
+    <div  className={styles.questionHeading}>
+      <Link data-theme={currentTheme} href={"/q/" + q.id} className={styles.questionTitle}>
         {q.title}
       </Link>
       <div className={styles.rating}>

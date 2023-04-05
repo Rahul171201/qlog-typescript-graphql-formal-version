@@ -9,43 +9,25 @@
   }
 }
 .descriptionBox {
-  width: 40%;
-  min-height: 70vh;
+  width: 45%;
+  min-height: 600px;
+  max-height: 700px;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   animation: slide-in 1500ms;
+  box-shadow: 0 3px 26px rgba(0, 0, 0, 0.09);
 }
 
-.questionMark {
-  font-size: 20rem;
-  user-select: none;
-}
-
-.description {
-  font-size: 2rem;
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-@media (max-width: 750px) {
-  .questionMark {
-    font-size: 15rem;
-  }
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @media (max-width: 550px) {
   .descriptionBox {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-  }
-  .questionMark {
-    font-size: 15rem;
-  }
-  .description {
-    font-size: 2rem;
+    display: none;
   }
 }

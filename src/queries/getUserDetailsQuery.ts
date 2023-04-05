@@ -20,6 +20,9 @@ const getUserDetailsQuery = gql`
 		    answered{
                 id,
                 content,
+                question{
+                    title
+                }
                 qid,
                 attachments
             }

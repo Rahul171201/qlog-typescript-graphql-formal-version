@@ -1,0 +1,37 @@
+@keyframes loader {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.loadingModal {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(179, 172, 172);
+  opacity: 0.7;
+  position: absolute;
+  top: -19.8vh;
+  left: -47.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingIcon {
+  user-select: none;
+  width: 9vw;
+  height: auto;
+  animation: loader 1000ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@media (max-width: 550px) {
+
+  .loadingModal {
+    display: none;
+  }
+}

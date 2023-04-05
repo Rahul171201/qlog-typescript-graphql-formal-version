@@ -7,22 +7,21 @@ import { SearchContext } from '@/contexts/SearchContext';
 import Form from '@/components/Form/Form';
 import { useReactiveVar } from '@apollo/client';
 import { theme } from '@/reactive-var/theme';
-import ThemeType from '@/types/ThemeType';
 
 // Login Component
 const Login = () => {
+  const currentTheme = useReactiveVar(theme);
 
-  const currentTheme : ThemeType = useReactiveVar(theme);
-  
   const { setSearchText } = useContext(SearchContext);
+
   useEffect(() => {
-    if ( setSearchText) {
+    if (setSearchText) {
       setSearchText(null);
     }
   }, [setSearchText]);
 
   return (
-    <main className={styles.loginMain} style={{backgroundImage: `url(${currentTheme.backgroundImage})`, backgroundColor: currentTheme.backgroundColor}}>
+    <main data-theme={currentTheme} className={styles.loginMain}>
       <div className={styles.navbar}>
         <div className={styles.logoWrapper}>
           <Logo></Logo>

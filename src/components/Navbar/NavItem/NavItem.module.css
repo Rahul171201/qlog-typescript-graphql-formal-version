@@ -9,11 +9,17 @@
 
 .navListLink {
   text-decoration: none;
-  color: white;
+}
+
+[data-theme='dark'].navListLink {
+  color: var(--dark-link-color);
+}
+[data-theme='light'].navListLink {
+  color: var(--light-link-color);
 }
 
 .navListLink:hover {
-  color: rgba(240, 255, 255, 0.781);
+  color: rgba(118, 123, 123, 0.781);
 }
 
 .hamburgerItem {

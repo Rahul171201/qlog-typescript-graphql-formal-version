@@ -1,16 +1,11 @@
 import styles from "./SloganComponent.module.css";
 import itim from "@/data/itimFont";
+import Image from "next/image";
 
 const SloganComponent = () => {
   return (
     <div className={`${styles.descriptionBox} ${itim.className}`}>
-      <div className={styles.questionMark}>?</div>
-      <div className={styles.description}>
-        <em>
-          Finding answers to your questions? Check us out, we can solve your
-          problems!
-        </em>
-      </div>
+      <img src={'/images/q4.jpg'} alt={'starting image'} className={styles.backgroundImage}></img>
     </div>
   );
 };

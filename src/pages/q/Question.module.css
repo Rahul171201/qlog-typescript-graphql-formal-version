@@ -16,20 +16,46 @@
   align-items: center;
 }
 .contentWrapper {
-  width: 95%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+[data-theme='dark'].contentWrapper {
+  background-color: var(--dark-main-background-color);
+}
+[data-theme='light'].contentWrapper {
+  background-color: var(--light-main-background-color);
+}
+
+.content {
+  width: 100%;
+  padding: 35px;
   min-height: 80vh;
   margin: 30px 0px;
   animation: fade-in 1500ms;
 }
+
 .questionBox {
   width: 100%;
-  background-color: white;
   height: min-content;
   display: flex;
-  padding: 50px;
+  padding: 30px;
   justify-content: space-between;
   border-radius: 9px;
+  box-shadow: 0 3px 26px rgba(0, 0, 0, 0.09);
 }
+
+[data-theme='dark'].questionBox {
+  background-color: var(--dark-sub-background-color);
+  color: var(--dark-font-color);
+}
+[data-theme='light'].questionBox {
+  background-color: var(--light-main-background-color);
+  color: var(--light-font-color);
+}
+
 .questionWrapper {
   display: flex;
   flex-direction: column;
@@ -38,6 +64,7 @@
   flex: 3;
   gap: 12px;
 }
+
 .questionTitle {
   font-size: 2.3rem;
 }
@@ -66,7 +93,6 @@
 }
 .iconWrapper {
   position: relative;
-  position: absolute;
 }
 
 .infoWrapper {
@@ -80,8 +106,14 @@
   font-size: 0.9rem;
   justify-content: center;
   align-items: center;
-  color: grey;
 }
+[data-theme='dark'].infoWrapper {
+  color: rgb(220, 220, 220);
+}
+[data-theme='light'].infoWrapper {
+  color: rgb(117, 117, 117);
+}
+
 .questionSideBox {
   display: flex;
   flex-direction: column;
@@ -126,22 +158,19 @@
 }
 
 .answerButton {
-  width: 60px;
-  height: 40px;
-  background-color: rgb(58, 135, 237);
-  color: white;
-  border-radius: 9px;
-  padding: 10px;
   text-decoration: none;
-}
-.answerButton:hover {
-  background-color: rgb(69, 69, 213);
 }
 
 .ownerName {
-  color: '#002B5B';
   font-size: 1.1rem;
   margin: 10px 0px;
+}
+
+[data-theme='dark'].ownerName {
+  color: rgb(220, 220, 220);
+}
+[data-theme='light'].ownerName {
+  color: rgb(117, 117, 117);
 }
 
 @media (max-width: 550px) {

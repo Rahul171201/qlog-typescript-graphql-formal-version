@@ -10,26 +10,29 @@ import ThemeType from "@/types/ThemeType";
 const StatsCard = ({ id, title, description, attachments } : {id : number, title: string, description: string, attachments: string[]}) => {
 
   // current theme
-  const currentTheme : ThemeType = useReactiveVar(theme);
+  const currentTheme = useReactiveVar(theme);
 
-  const [className, setClassName] = useState<string>('theme1');
+  const [className, setClassName] = useState<string>('light');
 
   useEffect(() => {
-    setClassName(currentTheme.type);
+    setClassName(currentTheme as ThemeType);
   }, [currentTheme]);
 
   return (
     <Link
       href={"/q/" + id}
-      className={className === 'theme1' ? `${styles.cardWrapper} ${lato.className} ${styles.theme1}` : `${styles.cardWrapper} ${lato.className} ${styles.theme2}`}
+      className={className === 'light' ? `${styles.cardWrapper} ${lato.className} ${styles.light}` : `${styles.cardWrapper} ${lato.className} ${styles.dark}`}
     >
       <div className={styles.cardTitle}>{title}</div>
       <hr className={styles.horizontalRule}></hr>
       <div className={styles.cardContent}>
         {description}
-        {attachments.map((attachment, index) => {
+        <div className={styles.attachmentBox}>
+            {attachments.map((attachment, index) => {
           return <ImageComponent key={index} src={attachment}></ImageComponent>;
         })}
+        </div>
+        
       </div>
     </Link>
   );

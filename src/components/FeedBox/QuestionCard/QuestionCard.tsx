@@ -7,6 +7,9 @@ import { useState } from 'react';
 import QuestionType from '@/types/QuestionType';
 import { useReactiveVar } from '@apollo/client';
 import { theme } from '@/reactive-var/theme';
+import { Button } from '@mui/material';
+import Router from 'next/router';
+import { darkButtonStyles, lightButtonStyles } from '@/data/buttonStyles';
 
 // Question card component
 const QuestionCard = ({ q }: { q: QuestionType }) => {
@@ -16,8 +19,12 @@ const QuestionCard = ({ q }: { q: QuestionType }) => {
   // state to determine if the question to be shown fully
   const [fullDisplay, setFullDisplay] = useState<boolean>(false);
 
+  const handleRedirect = () => {
+    Router.push('/ans/' + q.id + '/add_answer');
+  };
+
   return (
-    <div className={styles.cardWrapper}>
+    <div data-theme={currentTheme} className={styles.cardWrapper}>
       <div className={`${styles.card} ${lato.className}`}>
         <QuestionHeader q={q}></QuestionHeader>
         <hr className={styles.horizontalRule}></hr>
@@ -29,25 +36,24 @@ const QuestionCard = ({ q }: { q: QuestionType }) => {
           onClick={(e) => {
             setFullDisplay(true);
           }}
+          className={styles.continueReadingBox}
         >
           {fullDisplay ? <></> : <ContinueReading></ContinueReading>}
         </div>
+        {fullDisplay ? (
+          <div className={styles.buttonWrapper}>
+            <Button
+              onClick={handleRedirect}
+              variant="contained"
+              sx={currentTheme === 'dark' ? darkButtonStyles : lightButtonStyles}
+            >
+              Add Answer
+            </Button>
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
-      {/* Decorative circles */}
-
-      {currentTheme.type === 'theme1' ? (
-        <div>
-          <div className={`${styles.diamondPearlCircle} ${styles.bigCircle}`}></div>
-          <div className={`${styles.diamondPearlCircle} ${styles.mediumCircle}`}></div>
-          <div className={`${styles.diamondPearlCircle} ${styles.smallCircle}`}></div>
-        </div>
-      ) : (
-        <div>
-          <div className={`${styles.sunBurnCircle} ${styles.bigCircle}`}></div>
-          <div className={`${styles.sunBurnCircle} ${styles.mediumCircle}`}></div>
-          <div className={`${styles.sunBurnCircle} ${styles.smallCircle}`}></div>
-        </div>
-      )}
     </div>
   );
 };

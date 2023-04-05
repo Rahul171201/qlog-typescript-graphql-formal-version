@@ -7,25 +7,22 @@ import { useQuery, useReactiveVar } from '@apollo/client';
 import getQuestionQuery from '@/queries/getQuestionQuery';
 import LoadingPage from '@/components/LoadingPage/LoadingPage';
 import { theme } from '@/reactive-var/theme';
-import ThemeType from '@/types/ThemeType';
 
 const AddAnswer = ({ qId }: { qId: number }) => {
   // current theme
-  const currentTheme : ThemeType = useReactiveVar(theme);
+  const currentTheme = useReactiveVar(theme);
 
-   const { data, loading, error } = useQuery(getQuestionQuery, {
+  const { data, loading, error } = useQuery(getQuestionQuery, {
     variables: {
       id: qId
-    },
+    }
   });
 
-
-
-  if(loading){
-    return <LoadingPage></LoadingPage>
+  if (loading) {
+    return <LoadingPage></LoadingPage>;
   }
 
-  if(error){
+  if (error) {
     throw new Error(error.message);
   }
 
@@ -33,23 +30,25 @@ const AddAnswer = ({ qId }: { qId: number }) => {
   const question = data.question;
 
   return (
-    <div className={`${styles.answerWrapper} ${lato.className}`}  style={{backgroundImage: `url(${currentTheme.backgroundImage})`, backgroundColor: currentTheme.backgroundColor}}>
+    <div className={`${styles.answerWrapper} ${lato.className}`}>
       <Navbar></Navbar>
-      <div className={styles.questionWrapper}>
-        <div className={styles.questionTitle}>{question.title}</div>
-        <hr className={styles.horizontalRule}></hr>
-        <div className={styles.questionDescription}>
-          {question.description}
-          {question.attachments.map((attachment: string, index: number) => {
-            return (
-              <ImageComponent key={index} src={attachment}></ImageComponent>
-            );
-          })}
+      <div data-theme={currentTheme} className={styles.formWrapper}>
+        <div className={styles.questionWrapper}>
+          <div className={styles.questionTitle}>{question.title}</div>
+          <hr className={styles.horizontalRule}></hr>
+          <div className={styles.questionDescription}>
+            {question.description}
+            {question.attachments.map((attachment: string, index: number) => {
+              return (
+                <ImageComponent key={index} src={attachment}></ImageComponent>
+              );
+            })}
+          </div>
+          <div className={styles.infoBar}>
+            <span>{question.ownerName}</span>
+          </div>
+          <AnswerForm question={question}></AnswerForm>
         </div>
-        <div className={styles.infoBar}>
-          <span>{question.ownerName}</span>
-        </div>
-        <AnswerForm question={question}></AnswerForm>
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ const Ask = () => {
   }, [setSearchText]);
 
   return (
-    <div className={styles.askWrapper}  style={{backgroundImage: `url(${currentTheme.backgroundImage})`, backgroundColor: currentTheme.backgroundColor}}>
+    <div data-theme={currentTheme} className={styles.askWrapper}>
       <Navbar></Navbar>
       <QuestionForm></QuestionForm>
     </div>

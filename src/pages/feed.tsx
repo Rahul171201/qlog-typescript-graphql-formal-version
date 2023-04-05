@@ -9,7 +9,6 @@ import { user } from "@/reactive-var/user";
 import { theme } from "@/reactive-var/theme";
 
 const Feed = () => {
-  
   //current logged in user
   const currentUser = useReactiveVar(user);
 
@@ -23,11 +22,11 @@ const Feed = () => {
   console.log(currentUser, 'mein hi hun bhai');
 
   return (
-    <main className={styles.main}  style={{backgroundImage: `url(${currentTheme.backgroundImage})`, backgroundColor: currentTheme.backgroundColor}}>
+    <main data-theme={currentTheme} className={styles.main}>
       <Navbar></Navbar>
       <div className={styles.feedWrapper}>
-        {currentUser ? <FeedBox></FeedBox> : <></>}
         <Sidebar></Sidebar>
+                {currentUser ? <FeedBox></FeedBox> : <></>}
       </div>
     </main>
   );

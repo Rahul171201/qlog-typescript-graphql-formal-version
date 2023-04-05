@@ -1,15 +1,12 @@
 import ImageComponent from '../ImageComponent/ImageComponent';
 import styles from './QuestionForm.module.css';
-import useLocalStorage from '@/hooks/useLocalStorage';
-import { UserContext } from '@/contexts/UserContext';
 import Router from 'next/router';
 import handleQuestionSubmit from '@/helper/handleQuestionSubmit';
 import lato from '@/data/latoFont';
-import { Dispatch, SetStateAction, useContext, useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import TagField from './TagField/TagField';
 import QuestionType from '@/types/QuestionType';
 import {
-  ApolloCache,
   useMutation,
   useQuery,
   useReactiveVar
@@ -23,7 +20,7 @@ const QuestionForm = () => {
   // currently Logged in user
   const currentUser = useReactiveVar(user);
 
-  const { data, loading, error } = useQuery(getQuestionsQuery);
+  const { data, loading, error, client } = useQuery(getQuestionsQuery);
 
   const [postQuestion, {}] = useMutation(postQuestionMutation);
 
@@ -44,13 +41,12 @@ const QuestionForm = () => {
   if (loading) return <FetchLoader></FetchLoader>;
   if (error) throw new Error(error.message);
 
-  console.log(currentUser);
 
   return (
     <div className={`${styles.formWrapper} ${lato.className}`}>
       <form
         className={styles.questionForm}
-        onSubmit={(e) => {
+        onSubmit={async(e) => {
           e.preventDefault();
           if (currentUser) {
             const allInputs = e.currentTarget.getElementsByTagName('input');
@@ -70,7 +66,7 @@ const QuestionForm = () => {
               currentUser,
               attachments
             );
-            postQuestion({
+            await postQuestion({
               variables: {
                 title: newQuestion.title,
                 description: newQuestion.description,
@@ -88,6 +84,10 @@ const QuestionForm = () => {
                 });
               }
             });
+
+
+            client.resetStore();
+
             Router.push('/feed');
           } else {
             throw new Error(

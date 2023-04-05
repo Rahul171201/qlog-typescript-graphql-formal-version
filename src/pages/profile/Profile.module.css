@@ -21,6 +21,10 @@
   min-height: 100vh;
 }
 
+[data-theme='dark'].profileWrapper {
+  background-color: var(--dark-main-background-color);
+}
+
 .mainbodyWrapper {
   width: 100%;
   min-height: min-content;
@@ -29,6 +33,61 @@
   justify-content: center;
   align-items: center;
   animation: fade-in 1500ms;
+}
+
+.filterBarWrapper {
+  width: 100%;
+  margin: 15px 0;
+}
+
+[data-theme='dark'].filterBarWrapper {
+  background-color: white;
+}
+
+[data-theme='light'].filterBarWrapper {
+  background-color: white;
+}
+
+.filterBar {
+  display: flex;
+  justify-content: space-around;
+}
+
+.filter {
+  font-size: 1.2rem;
+  flex: 1;
+  text-align: center;
+  box-shadow: 0 10px 6px rgba(0, 0, 0, 0.09);
+  padding: 10px 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.highlighted {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+[data-theme='dark'].highlighted {
+  background-color: black;
+}
+
+[data-theme='light'].highlighted {
+  background-color: white;
+}
+
+.filterRule {
+  height: 5px;
+}
+
+[data-theme='dark'].filterRule {
+  opacity: 0.7;
+  border: none;
+  background-color: rgb(0, 19, 55);
+}
+[data-theme='light'].filterRule {
+  opacity: 0.3;
+  background-color: rgb(197, 193, 193);
 }
 
 .statsPanel {
@@ -82,24 +141,9 @@
   justify-content: center;
 }
 .askQuestionButton {
-  width: 300px;
-  height: 50px;
-  border: none;
-  border-radius: 9px;
-  padding: 10px;
-  background-color: green;
-  color: white;
-  font-size: 1.2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-decoration: none;
-  transition: transform 500ms;
 }
-.askQuestionButton:hover {
-  transform: scale(1.1);
-  background-color: rgb(38, 216, 38);
-}
+
 
 @media (max-width: 900px) {
   .panelHeader {
@@ -118,5 +162,9 @@
     width: 200px;
     height: 40px;
     font-size: 1rem;
+  }
+  .filter {
+    padding: 8px;
+    font-size: 0.9rem;
   }
 }

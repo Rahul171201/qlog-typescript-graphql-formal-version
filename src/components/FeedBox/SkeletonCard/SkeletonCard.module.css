@@ -1,13 +1,21 @@
 .skeletonWrapper {
-  background-color: white;
   width: 80%;
+  max-width: 900px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   padding: 20px;
   margin: 20px 0px;
-  border: 1px solid rgb(144, 122, 233);
+  z-index: 0;
 }
+
+[data-theme='dark'].skeletonWrapper {
+  background-color: var(--dark-sub-background-color);
+}
+[data-theme='light'].skeletonWrapper {
+  background-color: var(--light-sub-background-color);
+}
+
 .headerSkeleton {
   width: 90%;
 }

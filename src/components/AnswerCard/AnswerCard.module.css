@@ -1,14 +1,26 @@
 .answerWrapper {
-  width: 90%;
+  width: 100%;
   display: flex;
   height: min-content;
-  background-color: rgb(235, 229, 246);
+  background-color: rgb(232, 232, 232);
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
   border-radius: 0px 20px 20px 0px;
   position: relative;
+  padding: 30px;
+  margin: 20px 0;
 }
+
+[data-theme='dark'].answerWrapper {
+  background-color: var(--dark-sub-background-color);
+  color: var(--dark-font-color);
+}
+
+[data-theme='light'].answerWrapper {
+  background-color: var(--light-sub-background-color);
+  color: var(--light-font-color);
+}
+
 .leftBox {
   display: flex;
   flex: 1;
@@ -24,14 +36,13 @@
   display: flex;
   flex-direction: column;
   flex: 5;
-  padding: 20px;
+
   gap: 9px;
 }
 .header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  color: rgb(130, 110, 231);
 }
 .horizontalRule {
   width: 100%;
@@ -41,7 +52,6 @@
 }
 .content {
   font-size: 1.3rem;
-  padding: 10px;
   line-height: 1.5;
   white-space: pre-wrap;
 }
@@ -95,6 +105,25 @@
   position: absolute;
   top: -15px;
   left: -20px;
+}
+
+.votingBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+.votingButton {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 500ms;
+}
+
+.votingButton:hover {
+  transform: scale(1.2);
 }
 
 @media (max-width: 550px) {

@@ -8,23 +8,25 @@
 }
 
 .questionDescription {
-  width: 90%;
-  height: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 120px;
   overflow: hidden;
   overflow-wrap: break-word;
   font-size: 1rem;
-  padding: 20px 0px;
   opacity: 0.3;
   line-height: 1.8;
 }
 
 .questionDescriptionFull {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: min-content;
   font-size: 1rem;
   opacity: 1;
   line-height: 1.8;
-  padding: 30px;
   overflow-wrap: break-word;
   animation: fade-in 1500ms;
 }

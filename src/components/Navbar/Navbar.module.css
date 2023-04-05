@@ -1,100 +1,134 @@
 .overlay {
-	width: 100%;
-	min-height: 100%;
-	position: absolute;
-	background-color: rgb(71, 65, 65);
-	z-index: 1;
-	top: 0;
-	opacity: 0.5;
+  width: 100%;
+  position: absolute;
+  background-color: rgb(71, 65, 65);
+  z-index: 1;
+  top: 0;
+  opacity: 0.5;
 }
 
 .navbarWrapper {
-	width: 100vw;
-	height: min-content;
+  width: 100vw;
+  height: min-content;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.09);
+  /* box-shadow: 0px 3px 20px rgb(175, 170, 170); */
+}
+
+[data-theme='dark'].navbarWrapper {
+  background-color: var(--dark-main-background-color);
+  color: var(--dark-font-color);
+}
+[data-theme='light'].navbarWrapper {
+  background-color: var(--light-main-background-color);
+  color: var(--light-font-color);
 }
 
 .navbar {
-	width: 100%;
-	display: flex;
-	z-index: 1;
-	position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+  position: relative;
+}
+
+.leftBar{
+  display: flex;
+}
+
+.rightBar{
+  display: flex;
+}
+
+.toggleButtonWrapper{
+  margin-right: 25px;
 }
 
 .navListWrapper {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex: 3;
-	color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 3;
+  color: white;
 }
 
 .navList {
-	width: 100%;
-	display: flex;
-	list-style: none;
-	justify-content: right;
-	align-items: right;
-	gap: 18px;
+  width: 100%;
+  display: flex;
+  list-style: none;
+  justify-content: right;
+  align-items: center;
+  gap: 18px;
+  margin-right: 20px;
 }
 
 .hamburgerWrapper {
-	display: none;
-	position: relative;
+  display: none;
+  position: relative;
+  margin-right: 20px;
 }
 
 .hamburgerMenu {
-	display: flex;
-	width: 130px;
-	height: min-content;
-	position: absolute;
-	top: 0;
-	right: 0;
-	color: rgb(22, 110, 224);
-	flex-direction: column;
-	background-color: white;
-	padding: 20px;
-	border: 1px solid black;
-	z-index: 2;
-	border-radius: 10px 0px 10px 10px;
+  display: flex;
+  width: 130px;
+  height: min-content;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: rgb(22, 110, 224);
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid black;
+  z-index: 2;
+  border-radius: 10px 0px 10px 10px;
 }
 .menuList {
-	list-style: none;
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (max-width: 1000px) {
+  .toggleButtonWrapper {
+    display: none;
+  }
 }
 
 @media (max-width: 900px) {
-	.navListWrapper {
-		display: none;
-	}
-	.hamburgerWrapper {
-		display: flex;
-		justify-content: right;
-		align-items: center;
-		flex: 2;
-	}
-	.hamburgerIcon {
-		background-color: white;
-		border-radius: 5px;
-		cursor: pointer;
-	}
+  .navListWrapper {
+    display: none;
+  }
+  .hamburgerWrapper {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex: 2;
+  }
+  .hamburgerIcon {
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 }
 
 @media (max-width: 750px) {
-	.navbar {
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
-	}
-	.hamburgerIcon {
-		margin-right: 20px;
-		cursor: pointer;
-	}
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .hamburgerIcon {
+    margin-right: 20px;
+    cursor: pointer;
+  }
 }
 
 @media (max-width: 550px) {
-	.hamburgerMenu {
-		width: 200px;
-	}
+  .hamburgerMenu {
+    width: 200px;
+  }
 }

@@ -5,3 +5,11 @@
   flex-direction: column;
   align-items: center;
 }
+
+[data-theme='dark'].askWrapper {
+  background-color: var(--dark-sub-background-color);
+}
+
+[data-theme='light'].askWrapper {
+  background-color: var(--light-sub-background-color);
+}

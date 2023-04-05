@@ -1,9 +1,14 @@
+import { theme } from "@/reactive-var/theme";
+import { useReactiveVar } from "@apollo/client";
 import Image from "next/image";
 import styles from "./ContinueReading.module.css";
 
 const ContinueReading = () => {
+
+  const currentTheme = useReactiveVar(theme);
+
   return (
-    <div className={styles.wrapper}>
+    <div data-theme={currentTheme} className={styles.wrapper}>
       <span>Continue reading</span>
       <Image
         src="/images/down-arrow.png"

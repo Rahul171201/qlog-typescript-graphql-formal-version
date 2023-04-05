@@ -20,14 +20,14 @@ import { find } from 'lodash';
 import UserType from '@/types/UserType';
 import ThemeType from '@/types/ThemeType';
 import { theme } from '@/reactive-var/theme';
+import { Button } from '@mui/material';
 
 const Question = ({ qId }: { qId: number }) => {
   // currently Logged in User
-  const currentUser : UserType | null = useReactiveVar(user);
-
+  const currentUser: UserType | null = useReactiveVar(user);
 
   //current theme
-  const currentTheme : ThemeType = useReactiveVar(theme);
+  const currentTheme = useReactiveVar(theme);
 
   // search context
   const { setSearchText } = useContext(SearchContext);
@@ -35,10 +35,10 @@ const Question = ({ qId }: { qId: number }) => {
   const { data, loading, error, refetch } = useQuery(getQuestionQuery, {
     variables: {
       id: qId
-    },
+    }
   });
 
-  const [updateQuestion , {}] = useMutation(updateQuestionMutation);
+  const [updateQuestion, {}] = useMutation(updateQuestionMutation);
 
   // current question
   const question = data ? data.question : null;
@@ -51,13 +51,13 @@ const Question = ({ qId }: { qId: number }) => {
 
   useEffect(() => {
     refetch();
-    if(typeof window !== "undefined"){
+    if (typeof window !== 'undefined') {
       window.localStorage.setItem('currentuser', JSON.stringify(currentUser));
     }
     if (currentUser && currentUser.answered && question) {
       const userAnswered = currentUser.answered as AnswerType[];
-      userAnswered.forEach((ans : AnswerType) => {
-        const answer_given = find(question.answers, {id: ans.id});
+      userAnswered.forEach((ans: AnswerType) => {
+        const answer_given = find(question.answers, { id: ans.id });
         if (answer_given) {
           setAnswerGiven(true);
         }
@@ -99,97 +99,101 @@ const Question = ({ qId }: { qId: number }) => {
   };
 
   return (
-    <main className={styles.main}  style={{backgroundImage: `url(${currentTheme.backgroundImage})`, backgroundColor: currentTheme.backgroundColor}}>
+    <main className={styles.main}>
       <Navbar></Navbar>
-      <div className={`${styles.contentWrapper} ${lato.className}`}>
-        <div className={styles.questionBox}>
-          <div className={styles.questionWrapper}>
-            <div className={styles.questionTitle}>{question.title}</div>
-            <div id="description" className={styles.questionDescription}>
-              {question.description}
-              {question.attachments.map((attachment: string, index: number) => {
-                return (
-                  <ImageComponent src={attachment} key={index}></ImageComponent>
-                );
-              })}
-            </div>
-            <div className={styles.tagBox}>
-              {question.tags.map((tag: string, idx: number) => {
-                return (
-                  <div
-                    onClick={handleTagSubmit}
-                    className={styles.tag}
-                    key={idx}
-                  >
-                    #{tag}
+      <div data-theme={currentTheme} className={`${styles.contentWrapper} ${lato.className}`}>
+        <div
+          className={styles.content}
+        >
+          <div data-theme={currentTheme} className={styles.questionBox}>
+            <div data-theme={currentTheme} className={styles.questionWrapper}>
+              <div className={styles.questionTitle}>{question.title}</div>
+              <div id="description" className={styles.questionDescription}>
+                {question.description}
+                {question.attachments.map(
+                  (attachment: string, index: number) => {
+                    return (
+                      <ImageComponent
+                        src={attachment}
+                        key={index}
+                      ></ImageComponent>
+                    );
+                  }
+                )}
+              </div>
+              <div className={styles.tagBox}>
+                {question.tags.map((tag: string, idx: number) => {
+                  return (
+                    <div
+                      onClick={handleTagSubmit}
+                      className={styles.tag}
+                      key={idx}
+                    >
+                      #{tag}
+                    </div>
+                  );
+                })}
+              </div>
+              <div className={styles.bottomBar}>
+                {answerGiven || questionAsked ? (
+                  <></>
+                ) : (
+                  <div className={styles.answerButtonWrapper}>
+                    <Link
+                      href={'/ans/' + question.id + '/add_answer'}
+                      className={styles.answerButton}
+                    >
+                      <Button variant="contained" sx={currentTheme==="dark" ? {backgroundColor: "white", color: "black", '&:hover': {backgroundColor: "#FFFBF5"}} : {}}>Add answer</Button>
+                    </Link>
                   </div>
-                );
-              })}
+                )}
+              </div>
+              <div data-theme={currentTheme} className={styles.ownerName}>
+                Asked by <span>{question.owner.userName}</span>
+              </div>
             </div>
-            <div className={styles.bottomBar}>
-              {answerGiven || questionAsked ? (
-                <></>
-              ) : (
-                <div className={styles.answerButtonWrapper}>
-                  <Link
-                    href={'/ans/' + question.id + '/add_answer'}
-                    className={styles.answerButton}
-                  >
-                    Add Answer
-                  </Link>
 
-                  
+            <div className={styles.questionSideBox}>
+              <div
+                className={styles.ratingWrapper}
+                onClick={() => {
+                  if (currentUser) {
+                    if (className === 'starIcon')
+                      setClassName('rotateStarIcon');
+                    else setClassName('starIcon');
+                    handleRating(currentUser, question, updateQuestion);
+                  } else {
+                    throw new Error(
+                      'Unauthorized access : User is not defined'
+                    );
+                  }
+                }}
+              >
+                <div className={styles.iconWrapper}>
+                  <Image
+                    src="/images/star.png"
+                    alt="rating-icon"
+                    width={50}
+                    height={50}
+                    className={className}
+                    id="icon"
+                  ></Image>
                 </div>
-                
-              )}
-            </div>
-            <div className={styles.ownerName}>Asked by <span>{question.owner.userName}</span></div>
-          </div>
-
-          <div className={styles.questionSideBox}>
-            <div
-              className={styles.ratingWrapper}
-              onClick={() => {
-                if (currentUser) {
-                  if (className === 'starIcon') setClassName('rotateStarIcon');
-                  else setClassName('starIcon');
-                  handleRating(currentUser , question, updateQuestion);
-                } else {
-                  throw new Error('Unauthorized access : User is not defined');
-                }
-              }}
-            >
-              <div className={styles.iconWrapper}>
-                <Image
-                  src="/images/star.png"
-                  alt="rating-icon"
-                  width={50}
-                  height={50}
-                  className={className}
-                  id="icon"
-                ></Image>
+                <div className={styles.tempWrapper}>
+                  <span className={styles.rating}>{question.rating}</span>
+                </div>
               </div>
-              <div className={styles.tempWrapper}>
-                <span className={styles.rating}>{question.rating}</span>
+              <div data-theme={currentTheme} className={styles.infoWrapper}>
+                <span>1 day ago</span>
               </div>
             </div>
-            <div className={styles.infoWrapper}>
-              <span>{question.ownerName}</span>
-              <span>1 day ago</span>
-            </div>
           </div>
-        </div>
 
-        <div className={styles.answersBox}>
-          {ans.map((a, idx) => {
-            return (
-              <AnswerCard
-                key={idx}
-                answer={a}
-                id={a.id}
-              ></AnswerCard>
-            );
-          })}
+          <div className={styles.answersBox}>
+            {ans.map((a, idx) => {
+              return <AnswerCard key={idx} answer={a} id={a.id}></AnswerCard>;
+            })}
+          </div>
         </div>
       </div>
     </main>

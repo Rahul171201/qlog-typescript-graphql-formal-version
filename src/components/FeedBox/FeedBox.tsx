@@ -31,10 +31,11 @@ const FeedBox = () => {
     variables: {
       offset: PAGE_OFFSET,
       limit: PAGE_LIMIT
-    }
+    },
   });
 
   useEffect(() => {
+    console.log('yeh hun mein: previousDataLength', previousDataLength);
     if (previousDataLength) {
       fetchMore({
         variables: {
@@ -54,17 +55,30 @@ const FeedBox = () => {
 
   if (typeof window === undefined) throw new Error('Window is not defined');
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY + window.innerHeight + 2 >= document.body.scrollHeight) {
-      setShowSkeleton(true);
-      if (data) {
-        if(data.questions.length !== previousDataLength)
-        setPreviousDataLength(data.questions.length);
-        else
-        setShowSkeleton(false);
+  if(data)
+  console.log('ronels', data.questions);
+
+  useEffect(() => {
+    const listen = () => {
+      if (
+        window.scrollY + window.innerHeight+100 >
+        document.body.scrollHeight
+      ) {
+        setShowSkeleton(true);
+        if (data) {
+          console.log(data.questions.length, 'yehi hai main');
+          if (data.questions.length !== previousDataLength)
+            setPreviousDataLength(data.questions.length);
+          else setShowSkeleton(false);
+        }
       }
+    };
+    window.addEventListener('scroll', listen);
+
+    return () => {
+      window.removeEventListener('scroll',listen);
     }
-  });
+  }, [data, previousDataLength]);
 
   return (
     <div className={styles.feedBox}>
@@ -89,7 +103,11 @@ const FeedBox = () => {
       ) : (
         <></>
       )}
-      {showSkeleton && feedQuestions.length!==0 ? skeletonLoader.map((item) => item) : <></>}
+      {showSkeleton && feedQuestions.length !== 0 ? (
+        skeletonLoader.map((item) => item)
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

@@ -1,50 +1,35 @@
-@keyframes flash-diamond {
-  from {
-    background-color: rgb(213, 19, 234);
-    border: 4px solid rgb(123, 3, 79);
-  }
-  to {
-    border: 4px solid rgb(229, 19, 152);
-    background-color: rgb(238, 115, 251);
-  }
-}
-
-@keyframes flash-sun {
-  from {
-    border: 4px solid rgb(165, 4, 4);
-    background-color: rgb(244, 63, 43);
-  }
-  to {
-    border: 4px solid rgb(223, 9, 9);
-    background-color: rgb(255, 90, 72);
-  }
-}
-
 .cardWrapper {
-  padding: 20px;
+  padding: 30px;
   width: 80%;
+  max-width: 900px;
   height: min-content;
   background-color: white;
   position: relative;
   border-radius: 15px;
   margin: 50px 0px;
   color: black;
-  border: 1px solid rgb(144, 122, 233);
+}
+
+[data-theme='dark'].cardWrapper {
+  background-color: var(--dark-sub-background-color);
+  color: var(--dark-font-color);
+}
+
+[data-theme='light'].cardWrapper {
+  background-color: var(--light-sub-background-color);
+  color: var(--light-font-color);
 }
 
 .card {
   width: 100%;
-  min-height: 300px;
 
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
 }
 
 .horizontalRule {
-  width: 92%;
+  width: 100%;
   height: 5px;
   background-color: rgb(222, 216, 216);
   border: none;
@@ -84,6 +69,17 @@
   height: 50px;
   top: -25px;
   left: 60px;
+}
+
+.continueReadingBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.buttonWrapper {
+  margin: 15px 0;
+  transition: transform 500ms;
 }
 
 @media (max-width: 550px) {

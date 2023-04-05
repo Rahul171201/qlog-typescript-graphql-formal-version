@@ -2,18 +2,15 @@ import styles from './AnswerForm.module.css';
 import ImageComponent from '../ImageComponent/ImageComponent';
 import handleAnswerSubmit from '@/helper/handleAnswerSubmit';
 import Router from 'next/router';
-import { SyntheticEvent, useContext, useRef, useState } from 'react';
-import { UserContext } from '@/contexts/UserContext';
-import useLocalStorage from '@/hooks/useLocalStorage';
-import { read } from 'fs';
+import {useRef, useState } from 'react';
 import AnswerType from '@/types/AnswerType';
 import QuestionType from '@/types/QuestionType';
 import { useMutation, useQuery, useReactiveVar } from '@apollo/client';
 import { user } from '@/reactive-var/user';
 import getAnswersQuery from '@/queries/getAnswersQuery';
-import LoadingPage from '../LoadingPage/LoadingPage';
 import FetchLoader from '../FetchLoader/FetchLoader';
 import postAnswerMutation from '@/mutations/postAnswerMutation';
+import { Button } from '@mui/material';
 
 const AnswerForm = ({ question }: { question: QuestionType }) => {
   // currently Logged in User
@@ -49,7 +46,7 @@ const AnswerForm = ({ question }: { question: QuestionType }) => {
           <textarea
             className={styles.text}
             onChange={(e) => setContent(e.target.value)}
-            defaultValue={content}
+            value={content}
           ></textarea>
           {attachments ? (
             attachments.map((attachment, index) => {
@@ -63,12 +60,13 @@ const AnswerForm = ({ question }: { question: QuestionType }) => {
         </div>
       </div>
       <div className={styles.bottomBar}>
-        <button className={styles.clearallButton} onClick={handleClear}>
-          CLEAR
-        </button>
+        <div onClick={handleClear}>
+               <Button variant='contained' >Clear</Button>
+        </div>
+       
         <div className={styles.uploadButtonWrapper}>
           <label htmlFor="fileInput" className={styles.uploadButton}>
-            Upload Image
+            UPLOAD IMAGE
           </label>
           <input
             onChange={(e) => {
@@ -88,8 +86,7 @@ const AnswerForm = ({ question }: { question: QuestionType }) => {
           ></input>
         </div>
 
-        <button
-          className={styles.postButton}
+        <Button variant='contained'
           onClick={() => {
             if (currentUser) {
               const new_answer = handleAnswerSubmit(
@@ -124,7 +121,7 @@ const AnswerForm = ({ question }: { question: QuestionType }) => {
           }}
         >
           POST
-        </button>
+        </Button>
       </div>
     </div>
   );
