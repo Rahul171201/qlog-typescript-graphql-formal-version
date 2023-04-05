@@ -1,5 +1,5 @@
 .cardWrapper {
-  width: 100%;
+  width: 800px;
   height: min-content;
   display: flex;
   flex-direction: column;

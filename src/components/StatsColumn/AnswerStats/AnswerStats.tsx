@@ -17,9 +17,6 @@ const AnswerStats = () => {
     }
   });
 
-
- 
-
   if (loading) {
     return <FetchLoader></FetchLoader>;
   }
@@ -31,7 +28,7 @@ const AnswerStats = () => {
   console.log(data);
 
   return (
-    <div>
+    <div className={styles.statsWrapper}>
       {data.user.answered.length === 0 ? (
         <BlankCard
           title="No questions answered yet!"

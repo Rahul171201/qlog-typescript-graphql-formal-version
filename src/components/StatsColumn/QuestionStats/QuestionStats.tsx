@@ -26,7 +26,7 @@ const QuestionStats = () => {
   }
 
   return (
-    <div>
+    <div className={styles.statsWrapper}>
       {data.user.asked.length === 0 ? (
         <BlankCard
           title="No questions asked yet!"
