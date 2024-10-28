@@ -4,7 +4,8 @@
 
 ### Profile
 
-![Uploading Screenshot 2024-10-28 at 10.01.48 AM.png…]()
+<img width="1728" alt="Screenshot 2024-10-28 at 10 01 48 AM" src="https://github.com/user-attachments/assets/280ec610-7352-48c2-b47c-91a75ddc1b7f">
+
 
 ### Dark mode / Bluish Theme
 
